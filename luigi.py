@@ -1,17 +1,30 @@
 import discord
+from discord.ext import commands
+import random
 
-client = discord.Client()
+description = "luigi luigi luigi"
+bot = commands.Bot(command_prefix='L! ', description=description, case_insensitive=True)
 
-@client.event
+# start up
+@bot.event
 async def on_ready():
-    print('We have logged in as {0.user}'.format(client))
+    print("We have logged in as {}".format(bot.user.name))
 
-@client.event
-async def on_message(message):
-    if message.author == client.user:
-        return
+# load quotes
+quotes = []
+with open ('quotes.txt', 'rt') as quotefile:
+    for quoteline in quotefile:
+        quotes.append(quoteline)
 
-    if message.content.startswith('$hello'):
-        await message.channel.send('Hello!')
+# test command
+@bot.command()
+async def test(ctx):
+    await ctx.send("its a-me, luigi <3")
 
-client.run('TOKEN')
+# quote command
+@bot.command()
+async def quote(ctx):
+    quote = quotes[random.randrange(0, len(quotes))]
+    await ctx.send(quote)
+
+bot.run('NjcwNDczNjIwNjAxOTYyNDk5.Xiu5tw.kI8svdiI6rmj012HQfOKsXHvuiw')        
