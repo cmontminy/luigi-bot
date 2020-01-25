@@ -1,6 +1,8 @@
 import discord
 from discord.ext import commands
 import random
+import os
+import pathlib
 
 description = "luigi luigi luigi"
 bot = commands.Bot(command_prefix='L! ', description=description, case_insensitive=True)
@@ -8,11 +10,11 @@ bot = commands.Bot(command_prefix='L! ', description=description, case_insensiti
 # start up
 @bot.event
 async def on_ready():
-    print("We have logged in as {}".format(bot.user.name))
+    print("Logged in as {}".format(bot.user.name))
 
 # load quotes
 quotes = []
-with open ('quotes.txt', 'rt') as quotefile:
+with open ('assets/quotes.txt', 'rt') as quotefile:
     for quoteline in quotefile:
         quotes.append(quoteline)
 
@@ -27,4 +29,11 @@ async def quote(ctx):
     quote = quotes[random.randrange(0, len(quotes))]
     await ctx.send(quote)
 
-bot.run('NjcwNDczNjIwNjAxOTYyNDk5.Xiu5tw.kI8svdiI6rmj012HQfOKsXHvuiw')        
+# image command
+@bot.command()
+async def pic(ctx):
+    path = str(pathlib.Path(__file__).parent.absolute()) + '/assets/pictures'
+    pic = os.path.join(path, random.choice(os.listdir(path)))
+    await ctx.send(file=discord.File(pic))
+
+bot.run('TOKEN')
