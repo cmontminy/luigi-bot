@@ -16,3 +16,4 @@ TODO:
 - luigi encouragement
 - luigi fortune telling
 - help / command function
+- luigi achievements
