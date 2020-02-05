@@ -17,3 +17,4 @@ TODO:
 - luigi fortune telling
 - help / command function
 - luigi achievements
+- luigi chatbot
