@@ -18,3 +18,4 @@ TODO:
 - help / command function
 - luigi achievements
 - luigi chatbot
+- luigi nicknames
