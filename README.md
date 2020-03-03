@@ -19,3 +19,4 @@ TODO:
 - luigi achievements
 - luigi chatbot
 - luigi nicknames
+- luigi rng
