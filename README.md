@@ -24,3 +24,4 @@ TODO:
 - luigi matchmaking
 - luigi suggestions
 - luigi count down
+- luigi news
