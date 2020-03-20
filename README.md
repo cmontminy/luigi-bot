@@ -25,3 +25,4 @@ TODO:
 - luigi suggestions
 - luigi count down
 - luigi news
+- luigi facts 
