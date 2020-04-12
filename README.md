@@ -29,3 +29,4 @@ TODO:
 - luigi notifications
 - luigi aanouncements
 - random luigi word
+- luigi giveaways
